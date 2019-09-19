@@ -15,10 +15,10 @@ export default new Crawler({
     const $ = cheerio.load(body);
     const ids = $('img')
       .toArray()
-      .map(n => n.attribs.src)
-      .filter(url => /photos\//.test(url))
+      .map(n => n.attribs.srcset)
+      .filter(url => /photo\-/.test(url))
       .map(url => {
-        const result = url.match(/photos\/(\d+)\//);
+        const result = url.match(/photo\-(\d+)/);
 
         if (!result || result.length === 1) {
           return 0;
@@ -32,7 +32,7 @@ export default new Crawler({
         const image = (await Image.findOne({ vid: id })) || new Image();
 
         image.vid = id;
-        image.vendor = await Vendor.findOne({ name: VendorType.PEXELS });
+        image.vendor = await Vendor.findOne({ name: VendorType.UNSPLASH });
         await Image.save(image);
       });
     }

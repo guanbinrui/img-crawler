@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon --exec 'npm run start'",
-    "start": "node dist/index.js",
-    "prestart": "npm run compile",
-    "compile": "npx tsc --project tsconfig.json",
+    "start": "export NODE_ENV=production && node dist/index.js",
+    "prestart": "npx tsc --project tsconfig.json && cp ormconfig.json ./dist/ormconfig.json",
+    "watch": "npx nodemon --watch src/index.ts --exec 'npm run start'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
