@@ -20,10 +20,10 @@ async function start() {
   const words = randomWords(100);
 
   words.forEach(word => {
-    const searchWork = encodeURI(word);
+    const searchWord = encodeURI(word);
 
-    pexelsCrawler.queue(`https://www.pexels.com/search/${searchWork}`);
-    unsplashCrawler.queue(`https://unsplash.com/s/photos/${searchWork}`);
+    pexelsCrawler.queue(`https://www.pexels.com/search/${searchWord}`);
+    unsplashCrawler.queue(`https://unsplash.com/s/photos/${searchWord}`);
   });
 }
 
