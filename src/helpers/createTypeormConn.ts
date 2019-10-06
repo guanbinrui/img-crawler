@@ -1,6 +1,6 @@
 import { getConnectionOptions, createConnection } from 'typeorm';
-import { Image } from '../entity/Image';
-import { Vendor } from '../entity/Vendor';
+import { Image } from '../entities/Image';
+import { Vendor } from '../entities/Vendor';
 
 export const createTypeormConn = async () => {
   const connectionOptions = await getConnectionOptions(process.env.NODE_ENV);

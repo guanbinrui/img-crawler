@@ -3,7 +3,7 @@ import unsplashCrawler from './crawlers/unsplash';
 import randomWords from 'random-words';
 import { createTypeormConn } from './helpers/createTypeormConn';
 import { VendorType } from './configs';
-import { Vendor } from './entity/Vendor';
+import { Vendor } from './entities/Vendor';
 
 async function start() {
   await createTypeormConn();

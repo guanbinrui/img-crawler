@@ -1,8 +1,8 @@
 import cheerio from 'cheerio';
 import Crawler from 'crawler';
-import { Image } from '../entity/Image';
+import { Image } from '../entities/Image';
 import { VendorType } from '../configs';
-import { Vendor } from '../entity/Vendor';
+import { Vendor } from '../entities/Vendor';
 import { handleCrawlerError } from '../helpers/handleCrawlerError';
 
 export default new Crawler({
