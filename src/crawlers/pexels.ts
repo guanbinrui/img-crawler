@@ -21,9 +21,9 @@ export default new Crawler({
         const result = url.match(/photos\/(\d+)\//);
 
         if (!result || result.length === 1) {
-          return 0;
+          return '';
         }
-        return parseInt(result[1], 10);
+        return result[1];
       })
       .filter(id => Boolean(id));
 

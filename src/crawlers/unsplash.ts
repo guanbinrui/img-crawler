@@ -18,12 +18,12 @@ export default new Crawler({
       .map(n => n.attribs.srcset)
       .filter(url => /photo\-/.test(url))
       .map(url => {
-        const result = url.match(/photo\-(\d+)/);
+        const result = url.match(/photo\-(\d+\-[\d\w]{12})/);
 
         if (!result || result.length === 1) {
-          return 0;
+          return '';
         }
-        return parseInt(result[1], 10);
+        return result[1];
       })
       .filter(id => Boolean(id));
 

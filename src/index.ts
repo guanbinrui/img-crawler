@@ -17,7 +17,7 @@ async function start() {
   }
 
   // crawle
-  const words = randomWords(100);
+  const words = randomWords(200);
 
   words.forEach(word => {
     const searchWord = encodeURI(word);
