@@ -1,3 +1,6 @@
+/// <reference path="global.d.ts" />
+/// <reference path="module.d.ts" />
+
 import pexelsCrawler from './crawlers/pexels';
 import unsplashCrawler from './crawlers/unsplash';
 import randomWords from 'random-words';

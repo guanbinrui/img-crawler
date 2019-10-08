@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "outDir": "./dist/"
+    "outDir": "./lib/"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_mdoules"]
