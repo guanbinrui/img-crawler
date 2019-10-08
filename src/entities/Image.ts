@@ -12,7 +12,7 @@ export class Image extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   vid: string;
 
   @ManyToOne(() => Vendor, vendor => vendor.images)

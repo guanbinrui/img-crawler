@@ -7,7 +7,7 @@ import { handleCrawlerError } from '../helpers/handleCrawlerError';
 
 export default new Crawler({
   maxConnections: 10,
-  callback(err, { body, options }, done) {
+  async callback(err, { body, options }, done) {
     if (err) {
       handleCrawlerError(err, options);
     }
@@ -27,14 +27,14 @@ export default new Crawler({
       })
       .filter(id => Boolean(id));
 
-    if (ids.length) {
-      ids.forEach(async id => {
-        const image = (await Image.findOne({ vid: id })) || new Image();
+    for (let id of ids) {
+      const image = (await Image.findOne({ vid: id })) || new Image();
 
+      if (!image.vid) {
         image.vid = id;
-        image.vendor = await Vendor.findOne({ name: VendorType.UNSPLASH });
+        image.vendor = await Vendor.findOne({ name: VendorType.PEXELS });
         await Image.save(image);
-      });
+      }
     }
     done();
   },
