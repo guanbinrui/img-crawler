@@ -10,7 +10,9 @@ async function start() {
 
   // vendors
   for (let vendorName of Object.keys(VendorType)) {
-    const vendor = (await Vendor.findOne({ name: vendorName })) || new Vendor();
+    const vendor =
+      (await Vendor.findOne({ name: vendorName as VendorType })) ||
+      new Vendor();
 
     vendor.name = VendorType[vendorName as keyof typeof VendorType];
     await Vendor.save(vendor);
