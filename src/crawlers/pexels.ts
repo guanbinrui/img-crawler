@@ -18,12 +18,9 @@ export default new Crawler({
       .map(n => n.attribs.src)
       .filter(url => /photos\//.test(url))
       .map(url => {
-        const result = url.match(/photos\/(\d+)\//);
+        const result = url.match(/photos\/(\d+)\/pexels\-photo-(\d+)/);
 
-        if (!result || result.length === 1) {
-          return '';
-        }
-        return result[1];
+        return result && result[1] === result[2] ? result[1] : '';
       })
       .filter(id => Boolean(id));
 

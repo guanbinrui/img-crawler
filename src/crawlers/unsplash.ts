@@ -20,10 +20,7 @@ export default new Crawler({
       .map(url => {
         const result = url.match(/photo\-(\d+\-[\d\w]{12})/);
 
-        if (!result || result.length === 1) {
-          return '';
-        }
-        return result[1];
+        return result ? result[1] : '';
       })
       .filter(id => Boolean(id));
 
@@ -32,7 +29,7 @@ export default new Crawler({
 
       if (!image.vid) {
         image.vid = id;
-        image.vendor = await Vendor.findOne({ name: VendorType.PEXELS });
+        image.vendor = await Vendor.findOne({ name: VendorType.UNSPLASH });
         await Image.save(image);
       }
     }
