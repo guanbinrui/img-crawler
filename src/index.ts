@@ -12,7 +12,7 @@ async function start() {
   await createTypeormConn();
 
   // vendors
-  for (let vendorName of Object.keys(VendorType)) {
+  for (const vendorName of Object.keys(VendorType)) {
     const vendor =
       (await Vendor.findOne({ name: vendorName as VendorType })) ||
       new Vendor();
